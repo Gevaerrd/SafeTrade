@@ -16,7 +16,16 @@ body {
     font-family: 'Inter', 'Rajdhani', sans-serif;
 }
 
+:root {
+    --primary-color: #eebb44;
+    --secondary-color: #dddddd;
+    --background-color: #0f111d;
+    --text-color: #f5f5f5;
+    --hover-color: #b08e3e;
+}
+
 .header-site {
+    padding-top: 1rem;
     display: flex;
     height: 7rem;
 }
@@ -67,11 +76,16 @@ nav {
 nav ul li a {
     font-size: 1.55rem;
     color: #dddddd;
-    align-self: center;
     transition: 0.4s all ease-in-out;
 }
+
 nav ul li a:hover {
     color: #eebb44;
+    letter-spacing: 0.7px;
+}
+
+nav ul li:nth-child(4) a {
+    color: rgb(13, 200, 13);
 }
 
 .login-space {
@@ -116,11 +130,13 @@ nav ul li a:hover {
 
 .sign-in-button span {
     color: #11121a;
+    font-weight: bold;
     transition: 0.4s all ease-in-out;
 }
 
 .sign-in-button:hover span {
     color: #171a2c;
+    letter-spacing: 0.05rem;
 }
 
 .deposit-button {
@@ -135,4 +151,11 @@ nav ul li a:hover {
     box-shadow: inset -1px -1px 2px #dddddd,
         inset 1px 1px 2px #dddddd;
     background: #0f111d;
+}
+
+.deposit-button span{
+    transition: 0.4s all ease-in-out;
+}
+.deposit-button:hover span{
+    letter-spacing: 0.05rem;
 }
