@@ -1,0 +1,138 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: #0f111d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    color: #f5f5f5;
+    font-family: 'Inter', 'Rajdhani', sans-serif;
+}
+
+.header-site {
+    display: flex;
+    height: 7rem;
+}
+
+.header-organization {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pre-margin-auto {
+    display: flex;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.logo-and-site-name {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    text-align: center;
+}
+
+.logo-and-site-name h1 {
+    transition: 0.4s all ease-in-out;
+    font-size: 2.8rem;
+    color: #e6e6e6;
+}
+
+.logo-and-site-name h1:hover {
+    color: #eebb44;
+}
+
+
+.organization-of-options-and-sugestions {
+    display: flex; /* Já está configurado */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    align-items: center; /* Centraliza os itens verticalmente */
+    gap: 2.5rem; /* Espaçamento entre os itens */
+    padding: 0; /* Remove qualquer padding extra */
+}
+
+nav {
+    width: 100%;
+    display: flex;
+}
+nav ul li a {
+    font-size: 1.55rem;
+    color: #dddddd;
+    align-self: center;
+    transition: 0.4s all ease-in-out;
+}
+nav ul li a:hover {
+    color: #eebb44;
+}
+
+.login-space {
+    display: flex;
+    gap: 1.7rem;
+}
+
+.button-for-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.9rem;
+    width: 10rem;
+    border: 1px solid #f5f5f5;
+    border-radius: 0.35rem;
+}
+
+.button-for-header span {
+    font-size: 1.55rem;
+
+}
+
+.sign-in-button {
+    padding: 0;
+    background: #eebb44;
+    border: 1px solid rgb(156, 112, 30);
+    transition: 0.7s all ease-in-out;
+    box-shadow:  0 -1px 2px rgb(156, 112, 30),
+             0px 1px 2px rgb(156, 112, 30),
+             1px 0px 2px rgb(156, 112, 30),
+             -1px 0px 2px rgb(156, 112, 30);
+}
+.sign-in-button:hover {
+    background: #b08e3e;
+    border: 1px solid rgb(156, 112, 30);
+    box-shadow: inset 0 -1px 2px rgb(156, 112, 30),
+            inset 0px 1px 2px rgb(156, 112, 30),
+            inset 1px 0px 2px rgb(156, 112, 30),
+            inset -1px 0px 2px rgb(156, 112, 30);
+}
+
+.sign-in-button span {
+    color: #11121a;
+    transition: 0.4s all ease-in-out;
+}
+
+.sign-in-button:hover span {
+    color: #171a2c;
+}
+
+.deposit-button {
+    background: none;
+    border: 1px solid #dddddd ;
+    transition: all 0.7s ease-in-out;
+    box-shadow: -0.8px -0.8px 1px #dddddd,
+        0.8px 0.8px 1px #dddddd;
+}
+
+.deposit-button:hover {
+    box-shadow: inset -1px -1px 2px #dddddd,
+        inset 1px 1px 2px #dddddd;
+    background: #0f111d;
+}
