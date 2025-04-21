@@ -4,6 +4,8 @@ html {
 
 body {
     background-color: #0f111d;
+    overflow: hidden;
+    height: 100vh;
 }
 
 * {
@@ -21,17 +23,20 @@ body {
     --background-color: #0f111d;
     --text-color: #f5f5f5;
     --hover-color: #b08e3e;
+    --default-font-weight: 550;
 }
 
 h3 {
     font-size: 2.5rem;
-    color: var(--hover-color);
+    color: var(--secondary-color);
     letter-spacing: 0.10rem;
+    font-weight: 500;
 }
 h2 {
-    font-size: 6rem;
+    font-size: 5.5rem;
     color: var(--text-color);
     letter-spacing: 0.7px;
+    font-weight: 750;
 }
 
 p {
@@ -43,7 +48,6 @@ p {
 .get-primary-color {
     display: inline-block;
     color: var(--primary-color);
-    transform: rotate(0.5deg);
 }
 
 .for-start-trade-button-and-representative-logo {
@@ -57,21 +61,60 @@ p {
     content: "";
     position: absolute;
     top: -35%; /* Baixo */
-    left: -45%; /* Esquerda */
-    width: 150%;
+    left: -75%; /* Esquerda */
+    width: 120%;
     height: 200%;
     background: radial-gradient(circle, #1b1f35, transparent 70%);
-    animation: lightPulse 15s ease-in-out infinite;
+    animation: lightPulse 30 ease-in-out infinite;
     z-index: -1;
 }
 
 .logo-that-represents-the-site-ideia {
     width: 100%;
-    height: 60rem;
+    height: auto;
+    background-image: url('/images/logotrade.png');
     background-size: contain; /* ou cover */
     background-repeat: no-repeat;
-    background-position: top;
+    background-position: left;
     object-fit: contain; /* ou cover, dependendo do efeito */
+    transition: all 0.5s ease-in-out;
+}
+.logo-that-represents-the-site-ideia:hover {
+    position: relative;
+    width: 105%;
+
+}
+
+.logo-that-represents-the-site-ideia::before {
+    content: "";
+    position: absolute;
+    background: radial-gradient(circle, var(--primary-color), transparent 70%);
+    width: 70rem;
+    height: 35rem;
+    border-radius: 50%; /* Forma circular */
+    top: 50%; /* Centraliza verticalmente */
+    left: 69%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%) perspective(64px) rotateX(40deg) scale(1, 0.35);
+    transition: all 2s ease-in-out; /* Transição suave */
+    filter: blur(50px); /* Suaviza o efeito */
+    animation: pulseimage 10s ease-in-out infinite; /* Animação de pulsação */
+    z-index: -1; /* Fica atrás do conteúdo principal */
+    opacity: 0.8; /* Transparência suave */
+}
+
+.logo-that-represents-the-site-ideia:hover::before {
+    content: "";
+    position: absolute;
+    background: radial-gradient(circle, var(--primary-color), transparent 70%);
+    width: 70rem; /* Aumenta o tamanho */
+    height: 35rem;
+    border-radius: 75%; /* Forma circular */
+    top: 50%; /* Mantém a posição vertical */
+    left: 50%; /* Mantém a posição horizontal */
+    transform: translate(-50%, -50%) perspective(64px) rotateX(40deg) scale(1, 0.35);
+    transition: all 2s ease-in-out; /* Transição suave */
+    filter: blur(50px); /* Suaviza o efeito */
+    opacity: 0.8; /* Transparência suave */
 }
 
 .some-informations-and-start-trade-button {
@@ -83,10 +126,9 @@ p {
 }
 
 .start-trade-main-button {
-    margin-left: 16rem;
     margin-top: 2rem;
     background: var(--primary-color);
-    width: 30%;
+    width: 45%;
     height: 7rem;
     display: flex;
     justify-content: center;
@@ -117,12 +159,74 @@ p {
 .start-trade-main-button a span{
     font-size: 1.8rem;
     color: var(--background-color);
-    font-weight: bold;
+    font-weight: var(--default-font-weight);
 }
 
-.logo-that-represents-the-site-ideia img {
-    max-width: 100%;
-    max-height: 100%;
+.scroll-down-arrow {
+    position: absolute;
+    font-size: 10rem;
+    left: 50%;
+    bottom: 1rem;
+    transform: translateX(-50%);
+    color: var(--primary-color);
+    cursor: pointer;
+    animation: blink 1.5s infinite; /* Animação de piscar */
+    transition: all 2s ease-in-out;
+}
+
+.scroll-down-arrow.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.scroll-enabled {
+    overflow: auto;
+    height: auto;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+        bottom: 1rem;
+    }
+    50% {
+        opacity: 0.5;
+        bottom: 1.5rem;
+    }
+
+}
+
+@keyframes pulseimage {
+    0% {
+        transform: translate(-50%, -50%) scale(1); /* Posição inicial */
+        background: radial-gradient(circle, var(--primary-color), transparent 70%);
+        opacity: 0.5; /* Transparência inicial */
+        filter: blur(35px); /* Desfoque inicial */
+    }
+    25% {
+        transform: translate(-50%, -50%) scale(1.05); /* Crescimento sutil */
+        background: radial-gradient(circle, var(--secondary-color), transparent 70%);
+        opacity: 0.6; /* Aumenta a opacidade */
+        filter: blur(40px); /* Desfoque moderado */
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1); /* Crescimento controlado */
+        background: radial-gradient(circle, var(--hover-color), transparent 70%);
+        opacity: 0.7; /* Aumenta levemente a opacidade */
+        filter: blur(45px); /* Desfoque mais suave */
+    }
+    75% {
+        transform: translate(-50%, -50%) scale(1.1); /* Retorna ao tamanho intermediário */
+        background: radial-gradient(circle, var(--secondary-color), transparent 70%);
+        opacity: 0.6; /* Reduz a opacidade */
+        filter: blur(35px); /* Reduz o desfoque */
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.1); /* Retorna ao estado inicial */
+        background: radial-gradient(circle, var(--primary-color), transparent 70%);
+        opacity: 0.5; /* Retorna à transparência inicial */
+        filter: blur(30px); /* Retorna ao desfoque inicial */
+    }
 }
 
 @keyframes shakebutton {
@@ -145,13 +249,13 @@ p {
 
 @keyframes pulse {
     0% {
-        transform: scale(1);
+        transform: scale(1); /* Tamanho inicial */
     }
     50% {
-        transform: scale(1.05);
+        transform: scale(1.02); /* Crescimento sutil */
     }
     100% {
-        transform: scale(1);
+        transform: scale(1.01); /* Retorna ao tamanho inicial */
     }
 }
 
