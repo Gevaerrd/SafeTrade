@@ -20,29 +20,12 @@ body {
 :root {
     --primary-color: #eebb44;
     --secondary-color: #dddddd;
-    --background-color: #0f111d;
+    --background-color: #161929;
     --text-color: #f5f5f5;
     --hover-color: #b08e3e;
     --default-font-weight: 550;
-}
-
-h3 {
-    font-size: 2.5rem;
-    color: var(--secondary-color);
-    letter-spacing: 0.10rem;
-    font-weight: 500;
-}
-h2 {
-    font-size: 5.5rem;
-    color: var(--text-color);
-    letter-spacing: 0.7px;
-    font-weight: 750;
-}
-
-p {
-    margin-top: 2rem;
-    font-size: 1.8rem;
-    letter-spacing: 1.1px;
+    --orange-off-shield: #ff8c32;  /* Laranja principal do escudo */
+    --gold-color-ofshield: #ffcc66;    /* Dourado suave para animação */
 }
 
 .get-primary-color {
@@ -54,68 +37,121 @@ p {
     margin-top: 12rem;
     display: flex;
     justify-content: space-between;
-    gap: 2rem;
+    gap: 1rem ;
 }
 
 .for-start-trade-button-and-representative-logo::before {
     content: "";
     position: absolute;
-    top: -35%; /* Baixo */
-    left: -75%; /* Esquerda */
-    width: 120%;
-    height: 200%;
-    background: radial-gradient(circle, #1b1f35, transparent 70%);
-    animation: lightPulse 30 ease-in-out infinite;
-    z-index: -1;
+    top: -30%;
+    left: -35%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #1b1f35, transparent 50%);
+    z-index: -2;
 }
+
+
 
 .logo-that-represents-the-site-ideia {
     width: 100%;
-    height: auto;
-    background-image: url('/images/logotrade.png');
-    background-size: contain; /* ou cover */
+    max-height: 100%;
+    background-size: cover; /* ou cover */
     background-repeat: no-repeat;
     background-position: left;
     object-fit: contain; /* ou cover, dependendo do efeito */
-    transition: all 0.5s ease-in-out;
+    transition: all 1s ease-in-out;
+    z-index: 1;
 }
-.logo-that-represents-the-site-ideia:hover {
-    position: relative;
-    width: 105%;
 
+.logo-that-represents-the-site-ideia img {
+    max-width: 100%;
+    max-height: 100%;
+    margin-top: -5rem;
+    animation: shakeimage 10s ease-in-out infinite;
 }
 
 .logo-that-represents-the-site-ideia::before {
     content: "";
     position: absolute;
-    background: radial-gradient(circle, var(--primary-color), transparent 70%);
-    width: 70rem;
-    height: 35rem;
-    border-radius: 50%; /* Forma circular */
-    top: 50%; /* Centraliza verticalmente */
-    left: 69%; /* Centraliza horizontalmente */
-    transform: translate(-50%, -50%) perspective(64px) rotateX(40deg) scale(1, 0.35);
-    transition: all 2s ease-in-out; /* Transição suave */
-    filter: blur(50px); /* Suaviza o efeito */
-    animation: pulseimage 10s ease-in-out infinite; /* Animação de pulsação */
-    z-index: -1; /* Fica atrás do conteúdo principal */
-    opacity: 0.8; /* Transparência suave */
-}
+    background: radial-gradient(circle, var(--orange-off-shield), transparent 70%);
+    width: 40rem;
+    height: 25rem;
+    border-radius: 50%;
+    top: 43%;
+    left: 61%;
+    transform: perspective(64px) rotateX(40deg) scale(1, 0.35);
+    transition: all 2s ease-in-out;
+    filter: blur(64px);
+    opacity: 0.7;
+    animation: pulseimage 15s ease-in-out infinite;
+  }
 
-.logo-that-represents-the-site-ideia:hover::before {
-    content: "";
+  .bubbles {
     position: absolute;
-    background: radial-gradient(circle, var(--primary-color), transparent 70%);
-    width: 70rem; /* Aumenta o tamanho */
-    height: 35rem;
-    border-radius: 75%; /* Forma circular */
-    top: 50%; /* Mantém a posição vertical */
-    left: 50%; /* Mantém a posição horizontal */
-    transform: translate(-50%, -50%) perspective(64px) rotateX(40deg) scale(1, 0.35);
-    transition: all 2s ease-in-out; /* Transição suave */
-    filter: blur(50px); /* Suaviza o efeito */
-    opacity: 0.8; /* Transparência suave */
-}
+    display: flex;
+    gap: 5rem;
+    top: 70%;
+    left: 59%;
+    z-index: 0;
+  }
+
+  .bubbles span {
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 50%;
+    animation-fill-mode: both;
+    opacity: 0; /* garante que comece invisível */
+    background: var(--gold-color-ofshield);
+    box-shadow: 0 0 10px var(--gold-color-ofshield), 0 0 50px var(--gold-color-ofshield), 0 0 100px var(--gold-color-ofshield);
+    animation: bubbleShake 5s linear infinite;
+    --x-move: 0px; /* default */
+  }
+
+  .bubbles span:nth-of-type(even) {
+    background: var(--primary-color);
+  }
+  .bubbles span:nth-child(1) {
+    --x-move: -10px;
+    animation-delay: 0s;
+    animation-duration: 4s;
+  }
+  .bubbles span:nth-child(2) {
+    --x-move: 15px;
+    animation-delay: 0.3s;
+    animation-duration: 5s;
+  }
+  .bubbles span:nth-child(3) {
+    --x-move: -20px;
+    animation-delay: 0.6s;
+    animation-duration: 3.5s;
+  }
+  .bubbles span:nth-child(4) {
+    --x-move: 10px;
+    animation-delay: 0.9s;
+    animation-duration: 6s;
+  }
+  .bubbles span:nth-child(5) {
+    --x-move: -15px;
+    animation-delay: 0.5s;
+    animation-duration: 4.5s;
+  }
+  .bubbles span:nth-child(6) {
+    --x-move: -25px;
+    animation-delay: 0.5s;
+    animation-duration: 4.5s;
+  }
+  .bubbles span:nth-child(7) {
+    --x-move: -25px;
+    animation-delay: 0.3s;
+    animation-duration: 5s;
+  }
+  .bubbles span:nth-child(8) {
+    --x-move: 22px;
+    animation-delay: 0.4s;
+    animation-duration: 3s;
+  }
+
 
 .some-informations-and-start-trade-button {
     width: 80%;
@@ -125,8 +161,28 @@ p {
     gap: 2rem;
 }
 
+.some-informations-and-start-trade-button h3 {
+  font-size: 3rem;
+  color: var(--secondary-color);
+  letter-spacing: 0.10rem;
+  font-weight: 500;
+}
+
+.some-informations-and-start-trade-button h2 {
+  font-size: 8.4rem;
+  color: var(--text-color);
+  letter-spacing: 0.8px;
+  font-weight: 750;
+}
+
+.some-informations-and-start-trade-button p {
+  margin-top: 2.3rem;
+  font-size: 2.3rem;
+  letter-spacing: 1.1px;
+}
+
 .start-trade-main-button {
-    margin-top: 2rem;
+    margin-top: 4rem;
     background: var(--primary-color);
     width: 45%;
     height: 7rem;
@@ -157,77 +213,120 @@ p {
 }
 
 .start-trade-main-button a span{
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: var(--background-color);
     font-weight: var(--default-font-weight);
 }
 
 .scroll-down-arrow {
     position: absolute;
-    font-size: 10rem;
     left: 50%;
-    bottom: 1rem;
+    bottom: 3rem;
     transform: translateX(-50%);
+    font-size: 6rem;
     color: var(--primary-color);
     cursor: pointer;
-    animation: blink 1.5s infinite; /* Animação de piscar */
-    transition: all 2s ease-in-out;
-}
+    animation: floatGlow 2s ease-in-out infinite;
+    transition: all 0.5s ease;
+  }
+
+  .scroll-down-arrow span {
+    display: inline-block;
+    animation: bounce 2s infinite;
+    text-shadow: 0 0 8px var(--primary-color);
+  }
+
+  .scroll-down-arrow:hover span {
+    text-shadow: 0 0 16px var(--hover-color);
+    transform: scale(1.1);
+    color: var(--hover-color);
+  }
 
 .scroll-down-arrow.hidden {
     opacity: 0;
     pointer-events: none;
 }
 
+.scroll-down-arrow:hover span {
+    text-shadow: 0 0 16px var(--hover-color);
+    transform: scale(1.1);
+    color: var(--hover-color);
+  }
+
 .scroll-enabled {
-    overflow: auto;
+    overflow-y: auto;
     height: auto;
 }
 
-@keyframes blink {
-    0% {
-        opacity: 1;
-        bottom: 1rem;
-    }
-    50% {
-        opacity: 0.5;
-        bottom: 1.5rem;
-    }
+@keyframes shakeimage {
+  0% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
 
+  30% {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+  }
+
+  60% {
+    transform: scale(0.98);
+    filter: brightness(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
 }
 
-@keyframes pulseimage {
-    0% {
-        transform: translate(-50%, -50%) scale(1); /* Posição inicial */
-        background: radial-gradient(circle, var(--primary-color), transparent 70%);
-        opacity: 0.5; /* Transparência inicial */
-        filter: blur(35px); /* Desfoque inicial */
-    }
-    25% {
-        transform: translate(-50%, -50%) scale(1.05); /* Crescimento sutil */
-        background: radial-gradient(circle, var(--secondary-color), transparent 70%);
-        opacity: 0.6; /* Aumenta a opacidade */
-        filter: blur(40px); /* Desfoque moderado */
+@keyframes bubbleShake {
+  0% {
+    transform: translate(0, 0) scale(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(var(--x-move), -90vh) scale(1) rotate(360deg);
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+      opacity: 1;
     }
     50% {
-        transform: translate(-50%, -50%) scale(1.1); /* Crescimento controlado */
-        background: radial-gradient(circle, var(--hover-color), transparent 70%);
-        opacity: 0.7; /* Aumenta levemente a opacidade */
-        filter: blur(45px); /* Desfoque mais suave */
+      transform: translateY(-10px);
+      opacity: 0.6;
     }
-    75% {
-        transform: translate(-50%, -50%) scale(1.1); /* Retorna ao tamanho intermediário */
-        background: radial-gradient(circle, var(--secondary-color), transparent 70%);
-        opacity: 0.6; /* Reduz a opacidade */
-        filter: blur(35px); /* Reduz o desfoque */
+  }
+  
+  @keyframes floatGlow {
+    0% {
+      text-shadow: 0 0 8px var(--primary-color);
+    }
+    50% {
+      text-shadow: 0 0 20px var(--primary-color);
     }
     100% {
-        transform: translate(-50%, -50%) scale(1.1); /* Retorna ao estado inicial */
-        background: radial-gradient(circle, var(--primary-color), transparent 70%);
-        opacity: 0.5; /* Retorna à transparência inicial */
-        filter: blur(30px); /* Retorna ao desfoque inicial */
+      text-shadow: 0 0 8px var(--primary-color);
     }
-}
+  }
+
+  @keyframes pulseimage {
+    0% {
+      transform: perspective(64px) rotateX(40deg) scale(1.1, 0.35);
+    }
+    50% {
+      transform: perspective(64px) rotateX(40deg) scale(1.2, 0.35);
+    }
+    100% {
+      transform: perspective(64px) rotateX(40deg) scale(1.1, 0.35);
+    }
+  }
+  
 
 @keyframes shakebutton {
     0% {

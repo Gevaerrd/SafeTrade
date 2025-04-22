@@ -41,7 +41,7 @@ html {
 .pre-margin-auto {
     display: flex;
     margin: 0 auto;
-    width: 92.5%;
+    width: 90%;
 }
 
 .logo-and-site-name {
@@ -52,7 +52,7 @@ html {
 
 .logo-and-site-name h1 {
     font-weight: var(--default-font-weight);
-    font-size: 4rem;
+    font-size: 4.3rem;
     color: var(--primary-color);
     margin: 0;
 }
@@ -63,7 +63,6 @@ html {
     object-fit: contain;
     width: 8rem;
     height: 8rem;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Sombra suave */
 }
 
 
@@ -80,7 +79,7 @@ nav {
     display: flex;
 }
 nav ul li a {
-    font-size: 1.55rem;
+    font-size: 1.9rem;
     font-weight: 525;
     color: #dddddd;
     transition: 0.4s all ease-in-out;
@@ -102,7 +101,7 @@ nav ul li:nth-child(4) a {
 
 .first-contact {
     width: 100%;
-    height: 100dvh;
+    background: var(--background-color);
 }
 
 .button-for-header {
@@ -110,34 +109,34 @@ nav ul li:nth-child(4) a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0.9rem;
+    padding: 1.1rem;
     width: 10rem;
     border: 1px solid #f5f5f5;
     border-radius: 0.35rem;
 }
 
 .button-for-header span {
-    font-size: 1.55rem;
+    font-size: 1.75rem;
 
 }
 
 .sign-in-button {
     padding: 0;
     background: #eebb44;
-    border: 1px solid rgb(156, 112, 30);
+    border: 1px solid var(--hover-color);
     transition: 0.7s all ease-in-out;
-    box-shadow:  0 -1px 2px rgb(156, 112, 30),
-             0px 1px 2px rgb(156, 112, 30),
-             1px 0px 2px rgb(156, 112, 30),
-             -1px 0px 2px rgb(156, 112, 30);
+    box-shadow:  0 -1px 2px var(--hover-color),
+             0px 1px 2px var(--hover-color),
+             1px 0px 2px var(--hover-color),
+             -1px 0px 2px var(--hover-color);
 }
 .sign-in-button:hover {
     background: #b08e3e;
-    border: 1px solid rgb(156, 112, 30);
-    box-shadow: inset 0 -1px 2px rgb(156, 112, 30),
-            inset 0px 1px 2px rgb(156, 112, 30),
-            inset 1px 0px 2px rgb(156, 112, 30),
-            inset -1px 0px 2px rgb(156, 112, 30);
+    border: 1px solid var(--hover-color);
+    box-shadow: inset 0 -1px 2px var(--hover-color),
+            inset 0px 1px 2px var(--hover-color),
+            inset 1px 0px 2px var(--hover-color),
+            inset -1px 0px 2px var(--hover-color);
 }
 
 .sign-in-button span {
@@ -146,7 +145,6 @@ nav ul li:nth-child(4) a {
 }
 
 .sign-in-button:hover span {
-    color: #171a2c;
     letter-spacing: 0.02rem;
 }
 

@@ -11,11 +11,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 behavior: "smooth"
             });
 
-            arrow.classList.add("hidden");
-            // Esconde a seta depois de um pequeno delay (opcional)
             setTimeout(() => {
-                arrow.style.display = "none";
-            }, 500); // meio segundo depois do scroll
+                void arrow.offsetWidth; // ← reflow mágico
+                arrow.classList.add("hidden")
+            }, 500);
         });
     }
 });
