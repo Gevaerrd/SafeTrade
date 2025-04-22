@@ -1,7 +1,67 @@
-
-
-.step-by-step-we-ideia {
+:root {
+    --step-title: 2rem;
+    --step-desc: 2rem;
+}
+.ideia-of-safetrade-step-by-step {
+    display: flex;
     background: var(--background-color);
     width: 100%;
+    padding-top: 5rem;
+}
+
+.container-for-informations-of-step-by-step {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-direction: column;
+}
+
+.container-for-informations-of-step-by-step h3 {
+    font-size: 6.4rem;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.fullcontainer-for-steps-and-video {
+    display: flex;
+    width: 100%;
+}
+.container-for-video {
+    background: blue;
+    flex: 0 0 calc(45% - 1rem);
     height: 30rem;
+}
+.container-for-steps{
+    display: flex;
+    flex: 0 0 calc(55% - 1rem);
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.step-container {
+    display: flex;
+    flex: 1 0 calc(50% - 2rem);
+    height: 20rem;
+}
+
+.number-side {
+    width: 25%;
+    height: 100%;
+    background: black;
+}
+
+.informations-side {
+    width: 100%;
+    height: 100%;
+}
+
+.informations-side h4 {
+    color: var(--primary-color);
+    font-size: var(--step-title);
+}
+
+.informations-side p {
+    color: var(--primary-color);
+    font-size: var(--step-title);
 }
