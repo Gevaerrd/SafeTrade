@@ -26,35 +26,76 @@ body {
     --default-font-weight: 550;
     --orange-off-shield: #ff8c32;  /* Laranja principal do escudo */
     --gold-color-ofshield: #ffcc66;    /* Dourado suave para animação */
+    /* === Base Colors === */
+    --color-background: #120d23;
+    --color-surface: #1c1331;
+    --color-white: #ffffff;
+
+    /* === Brand Colors === */
+    --color-primary: #00d2c2;                     /* Para botão principal */
+    --color-primary-hover: #00b2a7;
+    
+    --color-secondary: #9f74ff;                   /* Para botão “Entrar” */
+    --color-secondary-hover: #7e58e1;
+
+    --color-accent-orange: #ff9900;               /* Escudo/destaques */
+    --color-accent-orange-dark: #d87d00;
+
+    /* === Text === */
+    --text-heading: #ffffff;
+    --text-subheading: #bca3f5;
+    --text-body: #cccccc;
+    --text-button: #ffffff;
+
+    /* === Buttons === */
+    --button-primary-bg: var(--color-primary);
+    --button-primary-hover-bg: var(--color-primary-hover);
+    --button-primary-text: var(--text-button);
+
+    --button-entrar-bg: var(--color-secondary);
+    --button-entrar-hover-bg: var(--color-secondary-hover);
+    --button-entrar-text: var(--text-button);
+
+    /* === Typography === */
+    --font-family-base: 'Inter', sans-serif;
+    /* === Shadows === */
+    --shadow-glow-orange: 0 0 16px var(--color-accent-orange);
+    --shadow-glow-cyan: 0 0 16px var(--color-primary);
+
+    /* === Transitions === */
+    --transition-fast: 0.2s ease-in-out;
+    --transition-slow: 0.4s ease;
 }
 
 .get-primary-color {
     display: inline-block;
-    color: var(--primary-color);
+    color: var(--color-primary-hover);
+    text-shadow: 1px 1px 6px var(--color-secondary-hover);
 }
 
 .for-start-trade-button-and-representative-logo {
-    margin-top: 12rem;
+    margin-top: 19rem;
     display: flex;
     justify-content: space-between;
     gap: 1rem ;
+
 }
 
 .for-start-trade-button-and-representative-logo::before {
     content: "";
     position: absolute;
-    top: -30%;
-    left: -35%;
+    top: -35%;
     width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, #1b1f35, transparent 50%);
-    z-index: -2;
+    height: 130%;
+    background: radial-gradient(ellipse, var(--color-surface), transparent 50%);
+    z-index: -1;
+    pointer-events: none;
 }
 
 
 
 .logo-that-represents-the-site-ideia {
-    width: 100%;
+    width: 80%;
     max-height: 100%;
     background-size: cover; /* ou cover */
     background-repeat: no-repeat;
@@ -64,27 +105,29 @@ body {
     z-index: 1;
 }
 
-.logo-that-represents-the-site-ideia img {
+.safetrade-logo {
     max-width: 100%;
     max-height: 100%;
-    margin-top: -5rem;
-    animation: shakeimage 10s ease-in-out infinite;
+    position: absolute;
+    cursor: pointer;
+    animation: pulse 5s ease infinite;
+    z-index: -1;
 }
+
 
 .logo-that-represents-the-site-ideia::before {
     content: "";
     position: absolute;
-    background: radial-gradient(circle, var(--orange-off-shield), transparent 70%);
-    width: 40rem;
-    height: 25rem;
+    background: radial-gradient(circle, #4a3d64, transparent 60%);
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
-    top: 43%;
-    left: 61%;
-    transform: perspective(64px) rotateX(40deg) scale(1, 0.35);
+    top: 1%;
+    left: 19%;
     transition: all 2s ease-in-out;
-    filter: blur(64px);
-    opacity: 0.7;
-    animation: pulseimage 15s ease-in-out infinite;
+    filter: blur(50px);
+    z-index: -1;
+    pointer-events: none;
   }
 
   .bubbles {
@@ -93,7 +136,7 @@ body {
     gap: 5rem;
     top: 70%;
     left: 59%;
-    z-index: 0;
+    z-index: -3;
   }
 
   .bubbles span {
@@ -102,8 +145,8 @@ body {
     border-radius: 50%;
     animation-fill-mode: both;
     opacity: 0; /* garante que comece invisível */
-    background: var(--gold-color-ofshield);
-    box-shadow: 0 0 10px var(--gold-color-ofshield), 0 0 50px var(--gold-color-ofshield), 0 0 100px var(--gold-color-ofshield);
+    background: var(--color-secondary-hover);
+    box-shadow: 0 0 10px var(--color-secondary-hover), 0 0 50px var(--color-secondary-hover), 0 0 100px var(--color-secondary-hover);
     animation: bubbleShake 5s linear infinite;
     --x-move: 0px; /* default */
   }
@@ -154,7 +197,7 @@ body {
 
 
 .some-informations-and-start-trade-button {
-    width: 80%;
+    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -163,13 +206,14 @@ body {
 
 .some-informations-and-start-trade-button h3 {
   font-size: 3rem;
-  color: var(--secondary-color);
-  letter-spacing: 0.10rem;
+  color: var(--text-subheading);
+  letter-spacing: 0.3rem;
   font-weight: 500;
 }
 
 .some-informations-and-start-trade-button h2 {
-  font-size: 8.4rem;
+  font-size: 8rem;
+  margin-top: 3rem;
   color: var(--text-color);
   letter-spacing: 0.8px;
   font-weight: 750;
@@ -178,17 +222,19 @@ body {
 .some-informations-and-start-trade-button p {
   margin-top: 2.3rem;
   font-size: 2.3rem;
+  color: var(--text-subheading);
   letter-spacing: 1.1px;
 }
 
 .start-trade-main-button {
     margin-top: 4rem;
-    background: var(--primary-color);
-    width: 45%;
+    background: var(--color-primary);
+    width: 30%;
     height: 7rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 8rem;
     border-radius: 2px;
     animation: pulse 1.5s infinite;
     transition: all 0.7s ease-in-out;
@@ -196,7 +242,7 @@ body {
 
 .start-trade-main-button:hover {
     transform: scale(1.1); /* Aumenta o botão ao passar o mouse */
-    background: var(--hover-color);
+    background: var(--color-primary-hover);
     color: #0f111d;
     border-color: #b08e3e;
     height: calc(6rem + 1rem);
@@ -214,6 +260,7 @@ body {
 
 .start-trade-main-button a span{
     font-size: 2rem;
+    text-transform: uppercase;
     color: var(--background-color);
     font-weight: var(--default-font-weight);
 }
@@ -221,7 +268,7 @@ body {
 .scroll-down-arrow {
     position: absolute;
     left: 50%;
-    bottom: 7rem;
+    bottom: 1rem;
     transform: translateX(-50%);
     font-size: 6rem;
     color: var(--primary-color);

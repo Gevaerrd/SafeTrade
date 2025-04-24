@@ -10,7 +10,7 @@ html {
     text-decoration: none;
     list-style: none;
     color: #f5f5f5;
-    font-family: 'Inter', 'Rajdhani', sans-serif;
+    font-family: var(--font-family-base);
 }
 
 :root {
@@ -19,14 +19,54 @@ html {
     --background-color: #0f111d;
     --text-color: #f5f5f5;
     --hover-color: #b08e3e;
-    --default-font-weight: 550;
+    --default-font-weight: 00;
     --default-letter-spacing: 0.02rem;
+    /* === Base Colors === */
+    --second-session-background: #e8e5ef;
+    --color-background: #120d23;
+    --color-surface: #1c1331;
+    --color-white: #ffffff;
+
+    /* === Brand Colors === */
+    --color-primary: #00d2c2;                     /* Para botão principal */
+    --color-primary-hover: #00b2a7;
+    --primary-color-second-session: #1A102A;
+    
+    --color-secondary: #9f74ff;                   /* Para botão “Entrar” */
+    --color-secondary-hover: #7e58e1;
+
+    --color-accent-orange: #ff9900;               /* Escudo/destaques */
+    --color-accent-orange-dark: #d87d00;
+
+    /* === Text === */
+    --text-heading: #ffffff;
+    --text-subheading: #bca3f5;
+    --text-body: #cccccc;
+    --text-button: #ffffff;
+
+    /* === Buttons === */
+    --button-primary-bg: var(--color-primary);
+    --button-primary-hover-bg: var(--color-primary-hover);
+    --button-primary-text: var(--text-button);
+
+    --button-entrar-bg: var(--color-secondary);
+    --button-entrar-hover-bg: var(--color-secondary-hover);
+    --button-entrar-text: var(--text-button);
+
+    /* === Typography === */
+    --font-family-base: 'Inter', sans-serif;
+    /* === Shadows === */
+    --shadow-glow-orange: 0 0 16px var(--color-accent-orange);
+    --shadow-glow-cyan: 0 0 16px var(--color-primary);
+
+    /* === Transitions === */
+    --transition-fast: 0.2s ease-in-out;
+    --transition-slow: 0.4s ease;
 }
 
 
 
 .header-site {
-    padding-top: 3rem;
     display: flex;
     height: 7rem;
 }
@@ -34,14 +74,16 @@ html {
 .header-organization {
     display: flex;
     flex-direction: row;
+    width: 97%;
     justify-content: space-between;
     align-items: center;
+    margin: 0 auto;
 }
 
 .pre-margin-auto {
     display: flex;
     margin: 0 auto;
-    width: 90%;
+    width: 85%;
 }
 
 .logo-and-site-name {
@@ -52,9 +94,10 @@ html {
 
 .logo-and-site-name h1 {
     font-weight: var(--default-font-weight);
-    font-size: 4.3rem;
-    color: var(--primary-color);
+    font-size: 5rem;
+    color: var(--text-heading);
     margin: 0;
+    text-shadow: 1px 1px 2px var(--color-secondary-hover);
 }
 
 
@@ -65,12 +108,18 @@ html {
     height: 8rem;
 }
 
+.options-and-sugestions {
+    display: flex;
+    flex-direction: row;
+    gap: 12rem;
+}
 
 .organization-of-options-and-sugestions {
     display: flex; /* Já está configurado */
     justify-content: center; /* Centraliza os itens horizontalmente */
     align-items: center; /* Centraliza os itens verticalmente */
-    gap: 2.5rem; /* Espaçamento entre os itens */
+    flex-direction: row;
+    gap: 5rem; /* Espaçamento entre os itens */
     padding: 0; /* Remove qualquer padding extra */
 }
 
@@ -79,104 +128,54 @@ nav {
     display: flex;
 }
 nav ul li a {
-    font-size: 1.9rem;
+    font-size: 2.1rem;
     font-weight: 525;
-    color: #dddddd;
+    color: var(--text-heading);
     transition: 0.4s all ease-in-out;
+    z-index: 1;
 }
 
 nav ul li a:hover {
-    color: #eebb44;
+    color: var(--text-subheading);
     letter-spacing: var(--default-letter-spacing);
 }
 
-nav ul li:nth-child(4) a {
-    color: rgb(13, 200, 13);
-}
 
 .login-space {
     display: flex;
     gap: 1.7rem;
 }
 
+
 .first-contact {
+    position: relative;
+    z-index: 1;
+    padding-top: 2.5rem;
     width: 100%;
-    background: var(--background-color);
+    height: 100vh;
+    background: var(--color-background);
 }
 
 .button-for-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 1.1rem;
-    width: 10rem;
-    border: 1px solid #f5f5f5;
-    border-radius: 0.35rem;
+    background-color: var(--button-entrar-bg);           /* #9f74ff */
+    color: var(--text-heading);                           /* #ffffff */
+    border-radius: var(--border-radius-sm);              /* 8px */
+    padding: 1.5rem 3.5rem 1.5rem 3.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background var(--transition-fast);       /* 0.2s */
+    box-shadow: inset 2px 2px 2px var(--color-surface),
+    inset -2px -2px 2px var(--color-surface);
 }
 
 .button-for-header span {
-    font-size: 1.75rem;
+    font-size: 2.1rem;
+    margin: 1rem;
 
 }
 
-.sign-in-button {
-    padding: 0;
-    background: #eebb44;
-    border: 1px solid var(--hover-color);
-    transition: 0.7s all ease-in-out;
-    box-shadow:  0 -1px 2px var(--hover-color),
-             0px 1px 2px var(--hover-color),
-             1px 0px 2px var(--hover-color),
-             -1px 0px 2px var(--hover-color);
-}
-.sign-in-button:hover {
-    background: #b08e3e;
-    border: 1px solid var(--hover-color);
-    box-shadow: inset 0 -1px 2px var(--hover-color),
-            inset 0px 1px 2px var(--hover-color),
-            inset 1px 0px 2px var(--hover-color),
-            inset -1px 0px 2px var(--hover-color);
+.button-for-header:hover {
+    background-color: var(--button-entrar-hover-bg);     /* #7e58e1 */
+
 }
 
-.sign-in-button span {
-    color: var(--text-color);
-    transition: 0.4s all ease-in-out;
-}
-
-.sign-in-button:hover span {
-    letter-spacing: 0.02rem;
-}
-
-.deposit-button {
-    background: none;
-    border: 1px solid var(--secondary-color) ;
-    transition: all 0.7s ease-in-out;
-}
-
-/* .deposit-button::before {
-    content: "";
-    padding: 0.9rem;
-    width: 15rem;
-    background: var(--primary-color);
-    position: absolute;
-    transform: perspective(80px) rotateX(40deg) scale(1, 0.35deg);
-    margin-left: 10rem;
-    filter: blur(80px);
-
-    
-} */
-
-.deposit-button:hover {
-    box-shadow: inset -1px -1px 1px var(--hover-color),
-        inset 1px 1px 1px var(--hover-color);
-    background: #0f111d;
-}
-
-.deposit-button span{
-    color: var(--secondary-color);
-    transition: 0.4s all ease-in-out;
-}
-.deposit-button:hover span{
-    letter-spacing: 0.02rem;
-}
