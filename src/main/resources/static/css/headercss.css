@@ -123,11 +123,11 @@ html {
     padding: 0; /* Remove qualquer padding extra */
 }
 
-nav {
+.options-and-sugestions nav {
     width: 100%;
     display: flex;
 }
-nav ul li a {
+.organization-of-options-and-sugestions li a {
     font-size: 2.1rem;
     font-weight: 525;
     color: var(--text-heading);
@@ -135,7 +135,7 @@ nav ul li a {
     z-index: 1;
 }
 
-nav ul li a:hover {
+.organization-of-options-and-sugestions li a:hover {
     color: var(--text-subheading);
     letter-spacing: var(--default-letter-spacing);
 }
